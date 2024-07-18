@@ -26,7 +26,7 @@ AWS Inferentia2 is purpose-built machine learning (ML) accelerator designed for 
 1. On an EC2 inferentia instance, install and run jupiter notebook.
 2. Execute the scripts  `compile-on-inferentia/install-drivers.sh` and `compile-on-inferentia/install-pytorch-neuron.sh`
 3. Copy the model weights generated in `fine-tune-sdxl/finetune_sttirum` directory to `compile-on-inferentia/lora` directory
-4. Run the notebook `compile-on-inferentia/hf_pretrained_sdxl_base_1024_inference.ipynb` to compile the SDXL model on inferentia2 
+4. Run the notebook `compile-on-inferentia/stable-diffusion-xl-lora_inference.ipynb` to compile the SDXL model with LoRA adapter on inferentia2 
 
 
 ## Security
