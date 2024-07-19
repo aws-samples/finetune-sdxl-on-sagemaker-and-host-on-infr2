@@ -60,7 +60,7 @@ sh compile-on-inferentia/install-pytorch-neuron.sh
 5. Run the notebook `compile-on-inferentia/stable-diffusion-xl-lora_inference.ipynb` in `compile-on-inferentia` folder to compile and then test SDXL model with LoRA adapter on inferentia2 
 
 
-## Example avatar image and sample prompts
+## Example avatar images and sample prompts
 
 [Avatar Images]
 
