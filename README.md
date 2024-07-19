@@ -27,17 +27,50 @@ By following these prerequisites, you will have the necessary knowledge and AWS 
 
 #### Fine-tune sdxl
 
-1. Upload 10-12 selfies in `fine-tune-sdxl/data/` directory. 
+1. Clone this repo.
 
-2. Run the notebook `sdxl_fine_tune.ipynb` to fine tune SDXL model with your images. 
+```shell
+git clone https://github.com/aws-samples/finetune-sdxl-on-sagemaker-and-host-on-infr2.git
+```
 
+2. Upload 10-12 selfie images in `fine-tune-sdxl/data/` directory.
+
+[Sample Images]
+
+3. Run the notebook `sdxl_fine_tune.ipynb` in fine-tune-sdxl folder to fine-tune and test SDXL model with your images.
 
 #### Compile on Inferentia
 
-1. On an EC2 inferentia instance, install and run jupiter notebook.
-2. Execute the scripts  `compile-on-inferentia/install-drivers.sh` and `compile-on-inferentia/install-pytorch-neuron.sh`
-3. Copy the model weights generated in `fine-tune-sdxl/finetune_sttirum` directory to `compile-on-inferentia/lora` directory
-4. Run the notebook `compile-on-inferentia/stable-diffusion-xl-lora_inference.ipynb` to compile the SDXL model with LoRA adapter on inferentia2 
+1. Create an `inf2.8xlarge` inferentia EC2 instance, install and run jupiter notebook follow the instruction in Prerequisites section.
+2. Clone this repo onto the instance.
+
+```shell
+git clone https://github.com/aws-samples/finetune-sdxl-on-sagemaker-and-host-on-infr2.git
+```
+
+3. Execute the scripts  `compile-on-inferentia/install-drivers.sh` and `compile-on-inferentia/install-pytorch-neuron.sh` to install Neuron runtime, driver, and etc.
+
+```shell
+sh compile-on-inferentia/install-drivers.sh
+
+sh compile-on-inferentia/install-pytorch-neuron.sh
+```
+
+4. Copy the model weights generated in `fine-tune-sdxl/finetune_sttirum` directory to `compile-on-inferentia/lora` directory
+5. Run the notebook `compile-on-inferentia/stable-diffusion-xl-lora_inference.ipynb` in `compile-on-inferentia` folder to compile and then test SDXL model with LoRA adapter on inferentia2 
+
+
+## Example avatar image and sample prompts
+
+[Avatar Images]
+
+
+## Cleanup
+
+To avoid incurring AWS charges after you are done testing the guidance, make sure you delete the following resources:
+
+* Amazon SageMaker Studio Domain
+* Amazon EC2 Inf2 EC2 instance
 
 
 ## Security
