@@ -35,7 +35,12 @@ git clone https://github.com/aws-samples/finetune-sdxl-on-sagemaker-and-host-on-
 
 2. Upload 10-12 selfie images in `fine-tune-sdxl/data/` directory.
 
-[Sample Images]
+
+<img src="fine-tune-sdxl/data/image_1.png" width="100" height="100">
+<img src="fine-tune-sdxl/data/image_5.png" width="100" height="100">
+<img src="fine-tune-sdxl/data/image_2.png" width="100" height="100">
+<img src="fine-tune-sdxl/data/image_3.png" width="100" height="100">
+
 
 3. Run the notebook `sdxl_fine_tune.ipynb` in fine-tune-sdxl folder to fine-tune and test SDXL model with your images.
 
@@ -62,8 +67,15 @@ sh compile-on-inferentia/install-pytorch-neuron.sh
 
 ## Example avatar images and sample prompts
 
-[Avatar Images]
+<img src="compile-on-inferentia/avatars/astronaut.jpg" width="100" height="100">
+<img src="compile-on-inferentia/avatars/businesswoman.jpg" width="100" height="100">
+<img src="compile-on-inferentia/avatars/new.jpg" width="100" height="100">
+<img src="compile-on-inferentia/avatars/ninza.jpg" width="100" height="100">
 
+* memoji of << TOK >>, astronaut, space ship background
+* oil painting of << TOK >>, business woman, suit
+* photo of << TOK >> , 3d portrait, ultra detailed, 8k render
+* anime of << TOK >>, ninja style, dark hair
 
 ## Cleanup
 
