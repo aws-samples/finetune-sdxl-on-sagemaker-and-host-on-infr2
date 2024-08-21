@@ -19,7 +19,7 @@ Before you get started let's review list of services and instance types required
 * General knowledge about foundation models and how fine-tuning brings value, read more on [Fine-tune a foundation model](https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-fine-tuning.html).
 * An AWS account. Ensure your AWS identity has the requisite permissions, including the ability to create SageMaker Resources (Domain, Model, and Endpoints) and Amazon S3 access to upload model artifacts. Alternatively, you can attach the AmazonSageMakerFullAccess managed policy to your IAM User or Role.
 * This notebook is tested using the default `Python 3 kernel` on SageMaker Studio. A GPU instance such as `ml.g5.2xlarge` is recommended. Please refer to the documentation on [Setting up a Domain for Amazon SageMaker Studio](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-studio-onboard.html).
-* For compiling the fine-tuned model, an `inf2.8xlarge` or larger EC2 instance with Jupyter Lab installed is required. follow [Set up a Jupyter Notebook Server](https://docs.aws.amazon.com/dlami/latest/devguide/setup-jupyter.html) for step-by-step instruction.
+* For compiling the fine-tuned model, an `inf2.8xlarge` or larger EC2 instance with AMI [Hugging Face Neuron Deep Learning AMI (Ubuntu 22.04)](https://aws.amazon.com/marketplace/pp/prodview-gr3e6yiscria2) is required. This AMI has jupyter-lab and required neuron drivers and libraries pre-installed. 
 
 By following these prerequisites, you will have the necessary knowledge and AWS resources to run the sample notebooks and work with stable diffusion models and foundation models on Amazon SageMaker.
 
@@ -46,19 +46,12 @@ git clone https://github.com/aws-samples/finetune-sdxl-on-sagemaker-and-host-on-
 
 #### Compile on Inferentia
 
-1. Create an `inf2.8xlarge` inferentia EC2 instance, install and run jupiter notebook follow the instruction in Prerequisites section.
-2. Clone this repo onto the instance.
+1. Launch an `inf2.8xlarge` inferentia EC2 instance, with Hugging Face Neuron Deep Learning AMI 
+2. ssh into the instance and start `jupyter-lab`
+3. Using the Jupyter Lab terminal, clone this repo
 
 ```shell
 git clone https://github.com/aws-samples/finetune-sdxl-on-sagemaker-and-host-on-infr2.git
-```
-
-3. Execute the scripts  `compile-on-inferentia/install-drivers.sh` and `compile-on-inferentia/install-pytorch-neuron.sh` to install Neuron runtime, driver, and etc.
-
-```shell
-sh compile-on-inferentia/install-drivers.sh
-
-sh compile-on-inferentia/install-pytorch-neuron.sh
 ```
 
 4. Copy the model weights generated in `fine-tune-sdxl/finetune_sttirum` directory to `compile-on-inferentia/lora` directory
